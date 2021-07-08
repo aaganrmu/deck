@@ -1,4 +1,4 @@
-# How to setup the whole thing using
+# How to setup the whole thing
 
 ## Install pip & add to path:
 
@@ -17,10 +17,7 @@
 6. Go to `Adafruit_Python_SSD1306` folder
 7. Install using `sudo python3 setup.py install`
 
-
-
-
-## Enable service
+## Enable deck-hardware service
 
 1. Make sure deck-hardware.service points to the correct deck-hardware-service.py
 2. Copy the file to systemd folder: `sudo cp deck-hardware.service /etc/systemd/system/`

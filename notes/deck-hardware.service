@@ -1,0 +1,12 @@
+[Unit]
+Descripion=Manages deck hardware (buttons/leds/buzzers/OLED)
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/pi/git/piClock2/scripts/gpio/blinker3.py
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

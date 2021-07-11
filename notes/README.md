@@ -25,3 +25,7 @@
 4. Start service (to test): `sudo systemctl start deck-hardware.service`
 5. Check status: `sudo systemctl status deck-hardware.service`
 6. Enable automatic startup: `sudo systemctl enable deck-hardware.service`
+
+## Random stuff
+
+Mount remote folder through SSH: `sudo sshfs -o allow_other,default_permissions,IdentityFile=/home/elmarw/.ssh/id_rsa pi@192.168.2.100:/ /mnt/rpi`

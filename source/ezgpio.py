@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 
+
 class input:
     def __init__(self, pin):
         self._pin = pin
@@ -16,7 +17,7 @@ class output:
         self._state = False
         GPIO.setup(self._pin, GPIO.OUT)
         GPIO.output(self._pin, GPIO.LOW)
-    
+
     @property
     def state(self):
         return self._state

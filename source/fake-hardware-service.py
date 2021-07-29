@@ -13,7 +13,7 @@ threads = []
 # button_pin = 16
 # threads += iodemo.setup(led_pin, button_pin)
 
-threads += oled.setup()
+threads.append(oled.setup())
 
 for thread in threads:
     thread.start()

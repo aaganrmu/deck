@@ -3,10 +3,10 @@ import ezgpio
 import subprocess
 
 
-def start(pin):
+def setup(pin):
     button = ezgpio.input(pin)
     watching_thread = threading.Thread(target=watcher, args=(button,), daemon=True)
-    watching_thread.start()
+    return watching_thread
 
 
 def watcher(button):

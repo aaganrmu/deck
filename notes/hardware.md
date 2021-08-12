@@ -7,7 +7,7 @@
 - Power switch
 - Shutdown button (GPIO)
 - Secondary display button (GPIO, toggles/cycles python script that draws)
-- Main display button (GPIO, toggles `vcgencmd display_power 0/1`)
+- Main display switch (GPIO, toggles `vcgencmd display_power 0/1`)
 - Status LED (lightpipe/solder on new one)
 
 ### Main display
@@ -16,7 +16,10 @@
 
 ### Secondary display
 
-- Device data, can cycle through multiple options
+- Hardware status (time/cpu/disk/mem/IP/wifi)
+- Nice logos
+- Big timer
+- Switchable by button
 
 ### Powerbank
 
@@ -28,7 +31,7 @@
 
 ### Other IO
 
-- Buzzer
+- Buzzer?
 - Acceleration sensors?
 
 ### Ports
@@ -46,11 +49,10 @@
 - ASCII art on secondary display is an option.
 - Carry handle(s).
 
-
 ## Software
 
 ### Hardware service
 Handles GPIO buttons, leds, secondary display etc.
 
-### Timer script
+### Timer scripts?
 Visible on secondary display, buzzer

@@ -5,17 +5,16 @@ import oled
 
 GPIO.setmode(GPIO.BOARD)
 
-
 threads = []
 
 quit_button_pin = 18
-threads += quitbutton.setup(quit_button_pin)
+threads.append(quitbutton.thread(quit_button_pin))
 
 led_pin = 12
 button_pin = 16
-threads += iodemo.setup(led_pin, button_pin)
+threads.append(iodemo.thread(led_pin, button_pin))
 
-threads += oled.setup()
+threads.append(oled.thread())
 
 for thread in threads:
     thread.start()

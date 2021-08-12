@@ -1,8 +1,9 @@
 import threading
 import ezgpio
+import time
 
 
-def setup(led_pin, button_pin):
+def thread(led_pin, button_pin):
     led = ezgpio.output(led_pin)
     button = ezgpio.input(button_pin)
     watching_thread = threading.Thread(target=watcher, args=(led, button,), daemon=True)
@@ -10,13 +11,11 @@ def setup(led_pin, button_pin):
 
 
 def watcher(led, button):
-    previous_state = False
+
     while True:
-        current_state = button.state
-        if current_state != previous_state:
-            led.state = current_state
-            previous_state = current_state
-            if current_state:
-                print("now on")
-            else:
-                print("now off")
+        state = button.wait_for_state_change()
+        led.state = state
+        if state:
+            print("now on")
+        else:
+            print("now off")

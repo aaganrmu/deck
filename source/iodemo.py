@@ -1,21 +1,20 @@
-import threading
-import ezgpio
+
+import RPi.GPIO as GPIO
+import lib.ezgpio as ezgpio
 import time
 
+LED_PIN = 12
+BUTTON_PIN = 16
 
-def thread(led_pin, button_pin):
-    led = ezgpio.output(led_pin)
-    button = ezgpio.input(button_pin)
-    watching_thread = threading.Thread(target=watcher, args=(led, button,), daemon=True)
-    return watching_thread
+GPIO.setmode(GPIO.BOARD)
 
+led = ezgpio.output(LED_PIN)
+button = ezgpio.input(BUTTON_PIN)
 
-def watcher(led, button):
-
-    while True:
-        state = button.wait_for_state_change()
-        led.state = state
-        if state:
-            print("now on")
-        else:
-            print("now off")
+while True:
+    state = button.wait_for_state_change()
+    led.state = state
+    if state:
+        print("now on")
+    else:
+        print("now off")

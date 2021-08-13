@@ -48,6 +48,8 @@
 - Stickers/labels everywhere.
 - ASCII art on secondary display is an option.
 - Carry handle(s).
+- Scuffed.
+- 
 
 ## Software
 

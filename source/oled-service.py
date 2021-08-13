@@ -1,17 +1,12 @@
-import threading
 from datetime import datetime
 import subprocess
 import time
-from lib_sh1106 import sh1106
+from lib.sh1106 import sh1106
 from smbus import SMBus
 from PIL import Image, ImageDraw, ImageFont
 
 PADDING = 2
 LINEHEIGHT = 8
-
-def thread():
-    watching_thread = threading.Thread(target=watcher, args=(), daemon=True)
-    return watching_thread
 
 
 def run_in_shell(cmd):
@@ -59,20 +54,14 @@ def stat_ip():
     raw_ip = run_in_shell("hostname -I | cut -d\' \' -f1")
     return raw_ip
 
-
-
-
-
-def watcher():
-    i2cbus = SMBus(1)
-    oled = sh1106(i2cbus)
-    while True:
-        items = [
-                 stat_cpu(),
-                 stat_disk(),
-                 stat_ip(),
-                 stat_time()
-                 ]
-        draw_screen(oled, items)
-
-        time.sleep(1)
+i2cbus = SMBus(1)
+oled = sh1106(i2cbus)
+while True:
+    items = [
+             stat_cpu(),
+             stat_disk(),
+             stat_ip(),
+             stat_time()
+             ]
+    draw_screen(oled, items)
+    time.sleep(1)

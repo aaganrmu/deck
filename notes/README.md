@@ -16,7 +16,7 @@
 5. Reboot
 
 ## Enable deck-hardware service
-
+Note that there's multiple services
 1. Make sure deck-hardware.service points to the correct deck-hardware-service.py
 2. Give the python file execute rights: `sudo chmod +x deck-hardware-service.py`
 3. Copy the file to systemd folder: `sudo cp deck-hardware.service /etc/systemd/system/`

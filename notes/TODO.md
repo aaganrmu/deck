@@ -10,7 +10,6 @@
 ## Create functionality for OLED:
 - Mode switching (GPIO)
 - Nice images
-- UI update for stats screen, + more stats?
 
 # Hardware
 
@@ -20,14 +19,16 @@
 - paint
 
 ## Buy remaining items
-- Screen
-- Keyboard
-- Generic PCBs to mount everything
+- Bigger power bank(s)
+- USB hub
 
 ## Buzzer
 - Switch using transistor?
 
-## Attach everything
+## Wiring
+- Make hat for RPI using prototyping PCB
+- Make microUSB-based hub
 - To case (use PCBs?)
-- Wire everything
 - Add lightpipes if needed
+
+## USB ports

@@ -1,2 +1,2 @@
 # deck
-Software for a cyberdeck
+Software for a cyberdeck project

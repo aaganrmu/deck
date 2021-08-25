@@ -1,5 +1,11 @@
 # How to setup the whole thing
 
+## Upgrade shell to zsh
+
+1. Install: `sudo apt-get install zsh`
+2. Make default: `chsh -s /bin/zsh`
+3. Install oh-my-zsh: `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+
 ## Install pip & add to path:
 
 1. `sudo apt-get install python3-distutils`
@@ -25,6 +31,7 @@ Note that there's multiple services
 6. Start service (to test): `sudo systemctl start deck-hardware.service`
 7. Check status: `sudo systemctl status deck-hardware.service`
 8. Enable automatic startup: `sudo systemctl enable deck-hardware.service`
+
 
 ## Random stuff
 

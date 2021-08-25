@@ -21,6 +21,7 @@
 ## Buy remaining items
 - Bigger power bank(s)
 - USB hub
+- Upgrade RPI (3B has relatively low power usage)
 
 ## Buzzer
 - Switch using transistor?

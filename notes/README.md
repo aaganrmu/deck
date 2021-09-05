@@ -12,6 +12,13 @@
 2. `python3 get-pip.py`
 3. Add `export PATH="$PATH:/home/pi/.local/bin"` to `~/.bash_profile`
 
+## Setup main display (1024x600)
+1. Edit config `sudo nano /boot/config.txt`
+2. add/uncomment `disable_overscan=1
+hdmi_cvt=1024 600 60 3 0 0 0
+hdmi_group=2
+hdmi_mode=87`
+
 ## Setup OLED display (SH1106)
 
 1. Install python3 packages `sudo apt-get install python3-dev python3-pip python3-pil smbus` (using sudo because we're running as daemon later)

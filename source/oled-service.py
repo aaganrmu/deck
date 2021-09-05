@@ -36,6 +36,7 @@ def draw_screen(oled, items):
     #display result
     oled.display()
 
+
 def make_bar_nice (name, value, maximum = 1):
     ratio = value/maximum
     bar_full = int(ratio*BAR_STEPS)
@@ -77,11 +78,11 @@ def stat_disk():
     return disk_string
 
 
-
 def stat_ip():
     raw_ip = run_in_shell("hostname -I | cut -d\' \' -f1")
     ip_string = f'IP   {raw_ip}'
     return ip_string
+
 
 i2cbus = SMBus(1)
 oled = sh1106(i2cbus)
@@ -94,4 +95,3 @@ while True:
              stat_ip(),
              ]
     draw_screen(oled, items)
-    time.sleep(1)

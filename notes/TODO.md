@@ -14,22 +14,17 @@
 # Hardware
 
 ## Case
-- find something nice
-- modify to fit components
-- paint
+- Front panel PMMA. Painted from inside?
+- Middle layer: plastic profiles attached to plate. Components attached to plate. Holes for displays.
+- Back layer: more PMMA
 
 ## Buy remaining items
-- Bigger power bank(s)
-- USB hub
 - Upgrade RPI (3B has relatively low power usage)
 
 ## Buzzer
 - Switch using transistor?
 
 ## Wiring
-- Make hat for RPI using prototyping PCB
-- Make microUSB-based hub
 - To case (use PCBs?)
 - Add lightpipes if needed
 
-## USB ports

@@ -87,11 +87,11 @@ def stat_temp():
     raw_temp = run_in_shell("vcgencmd measure_temp")
     temp = raw_temp[5:5+4]
     raw_throttled = run_in_shell("vcgencmd get_throttled")
-    throttled = raw_throttled[12:12+1]
-    if (throttled == '0'):
+    throttled = "".join(raw_throttled.split())[10:]
+    if (throttled == '0x0'):
         throttled_description = 'ok'
     else:
-        throttled_description = 'throttling'
+        throttled_description = throttled
     temp_string = f'Temp {temp}°C ({throttled_description})'
     return temp_string
 

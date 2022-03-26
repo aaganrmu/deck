@@ -83,6 +83,19 @@ def stat_ip():
     ip_string = f'IP   {raw_ip}'
     return ip_string
 
+def stat_temp():
+    raw_temp = run_in_shell("vcgencmd measure_temp")
+    temp = raw_temp[5:5+4]
+    raw_throttled = run_in_shell("vcgencmd get_throttled")
+    throttled = raw_throttled[12:12+1]
+    if (throttled == '0'):
+        throttled_description = 'ok'
+    else:
+        throttled_description = 'throttling'
+    temp_string = f'Temp {temp}°C ({throttled_description})'
+    return temp_string
+
+
 
 i2cbus = SMBus(1)
 oled = sh1106(i2cbus)
@@ -93,5 +106,6 @@ while True:
              stat_mem(),
              stat_disk(),
              stat_ip(),
+             stat_temp()
              ]
     draw_screen(oled, items)

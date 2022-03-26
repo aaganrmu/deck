@@ -41,3 +41,4 @@ Note that there's multiple services
 ## Random stuff
 
 Mount remote folder through SSH: `sudo sshfs -o allow_other,default_permissions,IdentityFile=/home/elmarw/.ssh/id_rsa pi@192.168.2.100:/ /mnt/rpi`
+Add `logo.nologo` to /boot/cmdline.txt to remove the 4 raspberries from the top of the screen

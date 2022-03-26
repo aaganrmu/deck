@@ -2,63 +2,55 @@
 
 ## Electronics
 
-### Raspberry PI
+### Raspberr
 
-- GPIO header directly attached to board.
-- Powered from GPIO
-- Shutdown button (GPIO)
-- Secondary display mode button (GPIO, toggles/cycles python script that draws)
-- Monitor display switches to disable them (GPIO, `vcgencmd display_power 0/1` for main and stops service for secondary)
-- Status LED (GPIO)
+- GPIO header to expansion board
+- USB hub
+- HDMI to display
+- Power
 
 ### Expansion board
 
-- Main power switch
-- All other buttons attach here
-- Handles power bar
-- Handles all GPIO
+- To Raspberry GPIO header
+- Shutdown button
+- 3 more buttons
+- 2 switches
+- Buzzer maybe?
+- More LEDs?
+
+### Power board
+- Fed from power bank
+- Power to Raspberry
+- Power to main display
+- Power to buzzer?
 
 ### Main display
 
-- Power switch
-- HDMI to Raspberry PI
+- Power from power board
+- HDMI to Raspberry
 - Buttons for menu, custom board?
 
 ### Secondary display
 
-- Hardware status (time/cpu/disk/mem/IP/wifi)
-- Nice logos
-- Mode switchable by button
-- Power switch (USE 3.3V RAIL)
+- To expansion board
 
 ### Powerbank
 
-- Status LEDS (lightpipes/solder on new ones)
-
-### Keyboard
-
-- USB, wired
-- Can be removed?
-
-### Other IO
-
-- Buzzer?
-- Acceleration sensors?
+- To power board
+- Status visible through case
 
 ### Ports
 
-- Charging port
-- More USB-ports
-- Ethernet?
-- Remaining GPIO?
-- 3.5 mm jack?
+- Charging port (microUSB)
+- 4x USB
+
 
 ## AESTHETICS
 
-- Body: ~~old cheap keyboard kit? Other portable device that's cheap?~~ It will never fit, build something myself. Wood frame for strenght, plastic plates for body. Or triplex + paint.
+- Body is clear acrylic
 - Cyrilic keyboard because why not.
 - ASCII art on boot.
 - Stickers/labels everywhere.
 - ASCII art on secondary display is an option.
-- Carry handle(s).
-- Scuffed.
+- Strap for carrying
+- Not too clean

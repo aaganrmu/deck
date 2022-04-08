@@ -3,7 +3,7 @@ import lib.ezgpio as ezgpio
 import subprocess
 import time
 
-QUIT_PIN=18
+QUIT_PIN=31
 
 GPIO.setmode(GPIO.BOARD)
 

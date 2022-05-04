@@ -1,11 +1,8 @@
-import RPi.GPIO as GPIO
 import lib.ezgpio as ezgpio
 import subprocess
 import time
 
 QUIT_PIN=31
-
-GPIO.setmode(GPIO.BOARD)
 
 button = ezgpio.input(QUIT_PIN)
 shutting_down = False

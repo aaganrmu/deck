@@ -8,12 +8,13 @@ BOUNCE_TIME = 50
 WAIT_FOR_STATE_CHANGE_DELAY = 50
 
 class input:
-    def __init__(self, 
-                 pin, 
+    def __init__(self,
+                 pin,
                  bounce_time = BOUNCE_TIME,
                  wait_for_state_change_delay = WAIT_FOR_STATE_CHANGE_DELAY
                  ):
         self._pin = pin
+        GPIO.setmode(GPIO.BOARD)
         GPIO.setup(self._pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
         self.bounce_time = bounce_time
         self.wait_for_state_change_delay = wait_for_state_change_delay
@@ -21,11 +22,18 @@ class input:
     def state(self):
         return GPIO.input(self._pin) == 0
 
+    @property
+    def pin(self):
+        return self._pin
+
     def wait_for_state_change(self):
-        GPIO.wait_for_edge(self._pin, 
-            GPIO.BOTH, 
-            bouncetime=self.bounce_time)
-        time.sleep(self.wait_for_state_change_delay/1000)
+        start_state = self.state
+        while self.state == start_state:
+            GPIO.wait_for_edge(self._pin,
+                               GPIO.BOTH,
+                               bouncetime=self.bounce_time
+                               )
+            time.sleep(self.wait_for_state_change_delay/1000)
         return self.state
 
 

@@ -1,43 +1,14 @@
 from datetime import datetime
 import subprocess
 import time
-from lib.sh1106 import sh1106
-import lib.ezgpio as ezgpio
-from smbus import SMBus
-from PIL import Image, ImageDraw, ImageFont
 
-PADDING = 0
-LINEHEIGHT = 9
 BAR_STEPS = 10
-TOGGLE_PIN = 13
 
-switch = ezgpio.input(TOGGLE_PIN)
 
 def run_in_shell(cmd):
     result_bytes = subprocess.check_output(cmd, shell=True)
     result_string = result_bytes.decode('utf-8')
     return result_string
-
-
-def draw_screen(oled, items):
-    canvas = oled.canvas
-
-    #clear screen
-    width = oled.width
-    height = oled.height
-    rectangle = (0, 0, width, height)
-    canvas.rectangle(rectangle, outline=0, fill=0)
-
-    #draw text
-    font = ImageFont.load_default()
-    x = PADDING
-    y = PADDING
-    for item in items:
-        canvas.text((x, y), item, font=font, fill=255)
-        y += LINEHEIGHT
-
-    #display result
-    oled.display()
 
 
 def make_bar_nice (name, value, maximum = 1):
@@ -86,6 +57,7 @@ def stat_ip():
     ip_string = f'IP   {raw_ip}'
     return ip_string
 
+
 def stat_temp():
     raw_temp = run_in_shell("vcgencmd measure_temp")
     temp = raw_temp[5:5+4]
@@ -99,22 +71,14 @@ def stat_temp():
     return temp_string
 
 
-
-i2cbus = SMBus(1)
-oled = sh1106(i2cbus)
-while True:
-    if not switch.state:
-        print('sleeping')
-        draw_screen(oled, [])
-        switch.wait_for_state_change()
-        continue
-
-    items = [
-             stat_time(),
-             stat_cpu(),
-             stat_mem(),
-             stat_disk(),
-             stat_ip(),
-             stat_temp()
-             ]
-    draw_screen(oled, items)
+class system_stats():
+    def stats(self):
+        items = [
+                 stat_time(),
+                 stat_cpu(),
+                 stat_mem(),
+                 stat_disk(),
+                 stat_ip(),
+                 stat_temp()
+                 ]
+        return(items)

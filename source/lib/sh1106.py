@@ -20,7 +20,7 @@ class sh1106():
         self.pages = int(self.height / 8)
         self.image = Image.new('1', (self.width, self.height))
         self.canvas = ImageDraw.Draw(self.image) # this is a "draw" object for preparing display contents
-        
+
         self._command(
             const.DISPLAYOFF,
             const.MEMORYMODE,

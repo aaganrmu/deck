@@ -5,19 +5,21 @@ import RPi.GPIO as GPIO
 import time
 
 BOUNCE_TIME = 50
-WAIT_FOR_STATE_CHANGE_DELAY = 50
+DELAY = 50
 
 class input:
     def __init__(self,
                  pin,
                  bounce_time = BOUNCE_TIME,
-                 wait_for_state_change_delay = WAIT_FOR_STATE_CHANGE_DELAY
+                 delay = DELAY
                  ):
         self._pin = pin
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(self._pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
         self.bounce_time = bounce_time
-        self.wait_for_state_change_delay = wait_for_state_change_delay
+        self.delay = delay/1000
+        self._callback_enabled = False
+        self.callbacks = []
     @property
     def state(self):
         return GPIO.input(self._pin) == 0
@@ -33,8 +35,23 @@ class input:
                                GPIO.BOTH,
                                bouncetime=self.bounce_time
                                )
-            time.sleep(self.wait_for_state_change_delay/1000)
+            time.sleep(self.delay)
         return self.state
+
+    def add_callback(self, function):
+        if not self._callback_enabled:
+            self._callback_enabled = True
+            GPIO.add_event_detect(self._pin,
+                                  GPIO.FALLING,
+                                  callback=self._callback,
+                                  bouncetime=self.bounce_time
+                                  )
+        self.callbacks.append(function)
+
+    def _callback(self, channel):
+        if self.state:
+            for callback in self.callbacks:
+                callback()
 
 
 class output:

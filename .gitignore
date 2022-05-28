@@ -133,3 +133,4 @@ dmypy.json
 
 # Nano stuff
 *.save
+*.swp

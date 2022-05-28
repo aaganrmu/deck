@@ -1,7 +1,8 @@
 import subprocess
 import oled_manager
 from display_stats import display_stats
-from display_dummy import display_dummy
+from display_pipe import display_pipe
+
 import lib.ezgpio as ezgpio
 
 SWITCH_PIN = 13
@@ -41,7 +42,8 @@ class UI:
 
 
 def main():
-    modes = [display_stats(), display_dummy()]
+    # modes = [display_pipe(), display_stats()]
+    modes = [display_stats()]
     oled_ui = UI(modes)
     oled_ui.start()
 

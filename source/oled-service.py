@@ -1,7 +1,7 @@
-import subprocess
 import oled_manager
 from display_stats import display_stats
 from display_pipe import display_pipe
+from display_dummy import display_dummy
 
 import lib.ezgpio as ezgpio
 
@@ -24,12 +24,14 @@ class UI:
             return
 
     def update_screen(self):
-        oled = oled_manager.oled()
+        oled = oled_manager.Oled()
         oled.start()
         try:
             while self.switch.state:
                 oled.items = self.modes[self.mode_index].get_text()
         except KeyboardInterrupt:
+            for mode in self.modes:
+                mode.stop()
             oled.stop()
             raise KeyboardInterrupt
         oled.stop()
@@ -43,7 +45,7 @@ class UI:
 
 def main():
     # modes = [display_pipe(), display_stats()]
-    modes = [display_stats()]
+    modes = [display_stats(), display_pipe()]
     oled_ui = UI(modes)
     oled_ui.start()
 

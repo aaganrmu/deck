@@ -1,4 +1,3 @@
-import subprocess
 import threading
 from lib.sh1106 import sh1106
 from smbus import SMBus
@@ -9,7 +8,7 @@ import time
 PADDING = 0
 LINEHEIGHT = 9
 
-class oled(threading.Thread):
+class Oled(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
         i2cbus = SMBus(1)

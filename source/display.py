@@ -4,3 +4,6 @@ class display():
 
     def get_text(self):
         return([])
+
+    def stop(self):
+        return

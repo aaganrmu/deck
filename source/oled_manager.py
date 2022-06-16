@@ -24,7 +24,7 @@ class oled(threading.Thread):
             self.draw_text(self.items)
         if self._shutting_down:
             self.draw_text([' ', ' ', '    Shutting down'])
-            time.sleep(2)
+            time.sleep(1.5)
         self.draw_text([])
 
     def stop(self):

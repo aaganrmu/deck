@@ -6,19 +6,21 @@
 - Maybe add some services to interject into boot sequence?
 - Change up boot sequence?
 
+## Create functionality for OLED:
+- Image mode
+- Timer mode
+
+## GPIO 
+- Functions for 2 push buttons + 1 switch (IO)
+
 # hardware
 
-## Create functionality for OLED:
-- Mode switching (GPIO)
-- Nice images
+## Buzzer
+- Build working driver board
 
 ## Case
 - Back layer: more PMMA, held with small bolts & nuts
-- Figure out how to mount OLED better (small bolts?)
-- Secure RPI (double sided tape will do)
-- Make new expansion board for OLED & buttons
-- Add buzzer board
 - Strap for carrying
 
 ## Buy remaining items
-- Connectors for buttons are coming in soon, will replace oversized ones
+- Buy a carrying strap + connectors

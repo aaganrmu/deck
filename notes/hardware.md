@@ -2,7 +2,7 @@
 
 ## Electronics
 
-### Raspberr
+### Raspberry
 
 - GPIO header to expansion board
 - USB hub

@@ -19,7 +19,7 @@ hdmi_mode=87`
 
 ## Setup OLED display (SH1106)
 
-1. Install python3 packages `sudo apt-get install python3-dev python3-pip python3-pil python3-smbus` (using sudo because we're running as daemon later)
+1. Install python3 packages `sudo apt-get install python3-dev python3-pip python3-pil python3-smbus` (using sudo because we're running from systemd later)
 2. Edit config `sudo nano /boot/config.txt`
 3. add/uncomment `dtparam=i2c_arm=on
 ` 
@@ -37,6 +37,9 @@ Note that there's multiple services
 7. Check status: `sudo systemctl status deck-hardware.service`
 8. Enable automatic startup: `sudo systemctl enable deck-hardware.service`
 
+## Add scripts folder to $PATH
+Add to .zshrc:
+export $PATH=/home/pi/git/deck/scripts:$PATH
 
 ## Random stuff
 

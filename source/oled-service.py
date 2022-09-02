@@ -1,7 +1,8 @@
 import oled_manager
 from display_stats import display_stats
 from display_pipe import display_pipe
-from display_dummy import display_dummy
+from display_timers import display_timers
+# from display_dummy import display_dummy
 
 import lib.ezgpio as ezgpio
 
@@ -44,7 +45,6 @@ class UI:
 
 
 def main():
-    # modes = [display_pipe(), display_stats()]
     modes = [display_stats(), display_pipe()]
     oled_ui = UI(modes)
     oled_ui.start()

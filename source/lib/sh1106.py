@@ -61,9 +61,7 @@ class sh1106():
         """
         Takes a 1-bit image and dumps it to the SH1106 OLED display.
         """
-        #assert(image.mode == '1')
-        #assert(image.size[0] == self.width)
-        # assert(image.size[1] == self.height)
+
         self._command(
             const.COLUMNADDR, 0x00, self.width - 1,
             const.PAGEADDR, 0x00, self.pages - 1)
@@ -82,7 +80,7 @@ class sh1106():
                     byte |= (pix[x + y + n] & 0x01) << 8
                     byte >>= 1
                 buf.append(byte)
-            self.data(buf)                  
+            self.data(buf)
 
     def cls(self):
         self.canvas.rectangle((0, 0, self.width-1, self.height-1), outline=0, fill=0)
@@ -92,7 +90,7 @@ class sh1106():
         if onoff == 0:
             self._command(const.DISPLAYOFF)
         else:
-            self._command(const.DISPLAYON)            
+            self._command(const.DISPLAYON)
 
 class const:
     CHARGEPUMP = 0x8D

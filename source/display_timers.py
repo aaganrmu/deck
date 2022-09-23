@@ -1,16 +1,25 @@
 from display import display
 from datetime import datetime
-import subprocess
-import time
 
 BAR_STEPS = 10
 
+class Timer():
 
-class display_stats(display):
+    def __init__(self, length):
+        self._length = length
+        self._start = datetime.now()
+        print(self._start)
 
-    class timer():
-        def text()
-            return("test")
+    def text(self):
+        return("test")
+
+
+class display_timers(display):
+
+    def __init__(self):
+        new_timer = Timer(4)
+        self._timers = []
+
 
     def make_bar_nice (self, name, value, maximum = 1):
         ratio = value/maximum
@@ -31,6 +40,7 @@ class display_stats(display):
 
     def get_text(self):
         items = ["timers:"]
-        for timer in self.timers:
-            items.append(timer.text())
+        for timer in self._timers:
+            items.append(timer)
         return(items)
+

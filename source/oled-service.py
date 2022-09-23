@@ -29,7 +29,7 @@ class UI:
         oled.start()
         try:
             while self.switch.state:
-                oled.items = self.modes[self.mode_index].get_text()
+                oled.text = self.modes[self.mode_index].get_text()
         except KeyboardInterrupt:
             for mode in self.modes:
                 mode.stop()
@@ -45,7 +45,7 @@ class UI:
 
 
 def main():
-    modes = [display_stats(), display_pipe()]
+    modes = [display_timers(), display_stats(), display_pipe()]
     oled_ui = UI(modes)
     oled_ui.start()
 

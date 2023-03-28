@@ -1,12 +1,13 @@
 import threading
 from lib.sh1106 import sh1106
 from smbus import SMBus
-from PIL import Image, ImageDraw, ImageFont
+from PIL import ImageFont
 from signal import signal, SIGTERM
 import time
 
 PADDING = 0
 LINEHEIGHT = 9
+
 
 class Oled(threading.Thread):
     def __init__(self):
@@ -36,13 +37,13 @@ class Oled(threading.Thread):
     def draw_text(self, items):
         canvas = self._display.canvas
 
-        #clear screen
+        # clear screen
         width = self._display.width
         height = self._display.height
         rectangle = (0, 0, width, height)
         canvas.rectangle(rectangle, outline=0, fill=0)
 
-        #draw text
+        # draw text
         font = ImageFont.load_default()
         x = PADDING
         y = PADDING
@@ -50,8 +51,6 @@ class Oled(threading.Thread):
             canvas.text((x, y), item, font=font, fill=255)
             y += LINEHEIGHT
 
-        #display result
+        # display result
 
         self._display.display()
-
-

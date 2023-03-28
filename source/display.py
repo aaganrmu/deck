@@ -3,7 +3,7 @@ class display():
         return
 
     def get_text(self):
-        return([])
+        return []
 
     def stop(self):
         return

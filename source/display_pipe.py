@@ -7,6 +7,7 @@ import threading
 
 PIPE_NAME = '/dev/oled'
 
+
 class display_pipe(display):
     def __init__(self):
         if not os.path.exists(PIPE_NAME):
@@ -21,10 +22,11 @@ class display_pipe(display):
 
     def get_text(self):
         items = self.pipewatcher.text.copy()
-        return(items)
+        return items
 
     def stop(self):
         self.pipewatcher.stop()
+
 
 class Pipewatcher(threading.Thread):
     def __init__(self):

@@ -45,7 +45,8 @@ class UI:
 
 
 def main():
-    modes = [display_timers(), display_stats(), display_pipe()]
+#    modes = [display_timers(), display_stats(), display_pipe()]
+    modes = [display_stats(), display_pipe()]
     oled_ui = UI(modes)
     oled_ui.start()
 

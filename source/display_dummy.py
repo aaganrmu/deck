@@ -8,4 +8,4 @@ class display_dummy(display):
                  ' 1.1 bloit/shake',
                  ' 9   jiffy'
                  ]
-        return(items)
+        return items

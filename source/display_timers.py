@@ -11,7 +11,7 @@ class Timer():
         print(self._start)
 
     def text(self):
-        return("test")
+        return "test"
 
 
 class display_timers(display):
@@ -42,5 +42,5 @@ class display_timers(display):
         items = ["timers:"]
         for timer in self._timers:
             items.append(timer)
-        return(items)
+        return items
 

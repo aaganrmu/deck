@@ -21,7 +21,7 @@ class display_pipe(display):
 
     def get_text(self):
         items = self.pipewatcher.text.copy()
-        return(items)
+        return items
 
     def stop(self):
         self.pipewatcher.stop()

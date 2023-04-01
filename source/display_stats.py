@@ -34,7 +34,7 @@ class display_stats(display):
         idle_percent = float(raw_idle)
         usage = 1-idle_percent/100
         cpu_string = self.make_bar_nice("CPU", usage)
-        return(cpu_string)
+        return cpu_string
 
 
     def stat_mem(self):
@@ -43,7 +43,7 @@ class display_stats(display):
         mem_usage = float(values[0])
         mem_max = float(values[1])
         mem_string = self.make_bar_nice("MEM", mem_usage, mem_max)
-        return(mem_string)
+        return mem_string
 
 
     def stat_disk(self):
@@ -83,4 +83,4 @@ class display_stats(display):
                  self.stat_ip(),
                  self.stat_temp()
                  ]
-        return(items)
+        return items

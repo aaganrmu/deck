@@ -10,6 +10,11 @@ PADDING = 0
 LINEHEIGHT = 9
 
 
+class Mode(Enum):
+    TEXT = 1
+    IMAGE = 2
+
+
 class Oled(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)

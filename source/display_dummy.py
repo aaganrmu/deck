@@ -1,5 +1,6 @@
 from display import display
 
+
 class display_dummy(display):
     def get_text(self):
         items = [
@@ -7,5 +8,5 @@ class display_dummy(display):
                  '10   potrzebie',
                  ' 1.1 bloit/shake',
                  ' 9   jiffy'
-                 ]
-        return(items)
+                ]
+        return items

@@ -1,7 +1,5 @@
-
 import RPi.GPIO as GPIO
 import lib.ezgpio as ezgpio
-import time
 
 LED_PIN = 12
 BUTTON_PIN = 16

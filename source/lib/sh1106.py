@@ -1,5 +1,5 @@
-import smbus
 from PIL import Image, ImageDraw
+
 
 class sh1106():
     """
@@ -19,7 +19,7 @@ class sh1106():
         self.height = 64
         self.pages = int(self.height / 8)
         self.image = Image.new('1', (self.width, self.height))
-        self.canvas = ImageDraw.Draw(self.image) # this is a "draw" object for preparing display contents
+        self.canvas = ImageDraw.Draw(self.image)  # this is a "draw" object for preparing display contents
 
         self._command(
             const.DISPLAYOFF,
@@ -39,7 +39,7 @@ class sh1106():
             const.CHARGEPUMP,         0x14,
             const.DISPLAYON)
 
-    def _command(self, *cmd): 
+    def _command(self, *cmd):
         """
         Sends a command or sequence of commands through to the
         device - maximum allowed is 32 bytes in one go.
@@ -57,6 +57,7 @@ class sh1106():
             self.bus.write_i2c_block_data(self.addr,
                                           self.data_mode,
                                           list(data[i:i+32]))
+
     def display(self):
         """
         Takes a 1-bit image and dumps it to the SH1106 OLED display.
@@ -83,14 +84,15 @@ class sh1106():
             self.data(buf)
 
     def cls(self):
-        self.canvas.rectangle((0, 0, self.width-1, self.height-1), outline=0, fill=0)
-        #self.display()
+        self.canvas.rectangle((0, 0, self.width - 1, self.height - 1), outline=0, fill=0)
+        # self.display()
 
     def onoff(self, onoff):
         if onoff == 0:
             self._command(const.DISPLAYOFF)
         else:
             self._command(const.DISPLAYON)
+
 
 class const:
     CHARGEPUMP = 0x8D

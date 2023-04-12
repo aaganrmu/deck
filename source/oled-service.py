@@ -1,13 +1,12 @@
 import oled_manager
 from display_stats import display_stats
 from display_pipe import display_pipe
-from display_timers import display_timers
-# from display_dummy import display_dummy
 
 import lib.ezgpio as ezgpio
 
 SWITCH_PIN = 13
 MENU_PIN = 37
+
 
 class UI:
     def __init__(self, modes):
@@ -53,4 +52,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

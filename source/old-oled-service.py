@@ -1,10 +1,9 @@
 from datetime import datetime
 import subprocess
-import time
 from lib.sh1106 import sh1106
 import lib.ezgpio as ezgpio
 from smbus import SMBus
-from PIL import Image, ImageDraw, ImageFont
+from PIL import ImageFont
 
 PADDING = 0
 LINEHEIGHT = 9
@@ -12,6 +11,7 @@ BAR_STEPS = 10
 TOGGLE_PIN = 13
 
 switch = ezgpio.input(TOGGLE_PIN)
+
 
 def run_in_shell(cmd):
     result_bytes = subprocess.check_output(cmd, shell=True)
@@ -22,13 +22,13 @@ def run_in_shell(cmd):
 def draw_screen(oled, items):
     canvas = oled.canvas
 
-    #clear screen
+    # clear screen
     width = oled.width
     height = oled.height
     rectangle = (0, 0, width, height)
     canvas.rectangle(rectangle, outline=0, fill=0)
 
-    #draw text
+    # draw text
     font = ImageFont.load_default()
     x = PADDING
     y = PADDING
@@ -36,11 +36,11 @@ def draw_screen(oled, items):
         canvas.text((x, y), item, font=font, fill=255)
         y += LINEHEIGHT
 
-    #display result
+    # display result
     oled.display()
 
 
-def make_bar_nice (name, value, maximum = 1):
+def make_bar_nice(name, value, maximum=1):
     ratio = value/maximum
     bar_full = int(ratio*BAR_STEPS)
     bar_empty = BAR_STEPS - bar_full

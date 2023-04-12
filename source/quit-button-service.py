@@ -1,8 +1,7 @@
 import lib.ezgpio as ezgpio
 import subprocess
-import time
 
-QUIT_PIN=31
+QUIT_PIN = 31
 
 button = ezgpio.input(QUIT_PIN)
 shutting_down = False
